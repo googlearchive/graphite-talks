@@ -48,6 +48,11 @@ resource "google_container_cluster" "default" {
     when    = "destroy"
     command = "sleep 90"
   }
+
+  provisioner "local-exec" {
+    when = "create"
+    command = "gcloud container clusters get-credentials ${var.cluster_name} --zone ${var.zone} --project ${var.project_id}"
+  }
 }
 
 data "google_dns_managed_zone" "root_zone" {
@@ -88,7 +93,8 @@ resource "acme_certificate" "bits_cert" {
   dns_challenge {
     provider = "gcloud"
     config {
-      GCE_POLLING_INTERVAL="2"
+      GCE_PROPAGATION_TIMEOUT = "300"
+      GCE_POLLING_INTERVAL = "2"
       GCE_PROJECT = "${var.project_id}"
       GCE_TTL = "5"
     }
