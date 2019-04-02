@@ -1,1 +1,6 @@
 ---
+applications:
+  - name: hello-world
+    path: ./app
+    buildpacks:
+      - go_buildpack

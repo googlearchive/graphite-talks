@@ -66,17 +66,18 @@ Your CF installation has been created! Execute the following command to log in:
 Let's deploy a Hello World application to the Cloud Foundry.
 Use the cf CLI:
 
-    cf push hello-world-app
+```
+cf create-space demo \
+&& cf tagert -s demo \
+&& cf push
+```
 
-## Cleanup
+## Optional Cleanup
 
-Terraform can be used to completely wipe the environment. do `terraform destroy -auto-approve`
+Terraform can be used to completely wipe the environment. Skip this step if you would like to keep your environment.
 
-Would you like to keep this environment? We recommend GitOps.
-
-Run `this command` to create a new Cloud Source Repositories + Cloud Build solution 
+```terraform destroy -auto-approve```
 
 ## More information
 
-This concludes this tutorial.
-Check out these links for more information.
+This concludes this tutorial!
