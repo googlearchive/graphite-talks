@@ -1,0 +1,8 @@
+---
+applications:
+  - name: hello-world
+    path: ./app
+    env:
+      GOPACKAGENAME: helloworld
+    buildpacks:
+      - go_buildpack
