@@ -67,12 +67,22 @@ terraform apply -var project_id={{project-id}}
 
 This should take about 30 minutes to complete. Take a ☕ break!
 
+## Commit the Terraform state
+
+Since Cloud Shell workspaces for tutorials are ephemeral, commit the Terraform state:
+
+```bash
+git add terraform.tfstate terraform.tfvars && \
+git commit -m "Initial deployment" && \
+git push
+```
+
 ## Login to CF
 
 Your CF installation has been created! Execute the following command to log in:
 
 ```bash
-cf login --skip-ssl-verify -a $(terraform output cf_api_endpoint) -u admin -p $(terraform output cf_admin_password)
+cf login --skip-ssl-validation -a $(terraform output cf_api_endpoint) -u admin -p $(terraform output cf_admin_password)
 ```
 
 ## Deploy an example application

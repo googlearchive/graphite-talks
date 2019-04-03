@@ -104,5 +104,5 @@ https://github.com/kubernetes-sigs/federation-v2
 
 Here are a few ways to get in contact with the authors:
 - Ping `@mattysweeps` on [Cloud Foundry Slack](https://cloudfoundry.slack.com/) or post in the `#gcp` channel
-- Email `mattysweeps@google.com`
+- Email `mattysweeps@google.com` or `jlewisiii@google.com`
 
